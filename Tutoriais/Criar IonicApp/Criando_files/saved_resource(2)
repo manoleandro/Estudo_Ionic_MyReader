@@ -1,0 +1,16 @@
+__lxG210746__297478164.parser([{
+    id:"606620",
+    type:"js",
+    div_name:"lx_606620",
+    isTablet:0,
+source:' <ins class="adsbygoogle adslot_606620" data-ad-client="ca-pub-3104790387792468" data-ad-slot="9296432893" style="display:inline-block;width: 336px; height: 280px;" data-ad-type="text,image"> </ins> <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>'
+, counters: ['https://clickiocdn.com/npm_show/?area_id=606620&sds_id=1977469&ubckp=0&retarget_adv_net_id=0&psds_id=0&pfloor=0.000000&first=1&dcpm_type=0&order_id=1&adserver=0&rotator_id=0']
+},{
+    id:"606621",
+    type:"js",
+    div_name:"lx_606621",
+    isTablet:0,
+source:' <ins class="adsbygoogle adslot_606621" data-ad-client="ca-pub-3104790387792468" data-ad-slot="4197lRm3" data-alternate-ad-url="https://clickioadvd.com/npm_chain/?t=1503082984&add_url=858~OT8_DlBfXUATQhcKFllYbldYXw8FW0AG9tbcnomMnoKczMHSEN_e28zX1YGIk4yF2NgZyNfK3xPt35HWy4GdlQFwPVJEaFReXkMKCj0tDAVVRgk1Ozs-BwVNkYuHnIGEhtgQ&area_id=606621&sds_id=1992874&page_url=https%3a%2f%2ftableless.com.br%2fcriando-uma-aplicacao-movel-com-ionic-2-e-angular-2-em-dez-passos%2f" style="display:inline-block;width: 300px; height: 600px;" data-ad-type="text,image"> </ins> <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>'
+, counters: ['https://clickiocdn.com/npm_show/?area_id=606621&sds_id=1992873&ubckp=0&retarget_adv_net_id=0&psds_id=0&pfloor=0.000000&first=1&dcpm_type=0&order_id=1&adserver=0&rotator_id=0']
+}, {type: 'params', site: {"ch_dmn":"clickioadvd.com"},
+blocks:{"606620": {"type":"js_npm","ai_clone_source":1,"ar_time":30}, "606621": {"type":"js_npm","ai_clone_source":1,"ar_time":30}}}, {type: 'cfg', isMobile: 0}, {type: 'dbg', alg_id: 204}]);

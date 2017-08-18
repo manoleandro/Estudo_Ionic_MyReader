@@ -1,0 +1,320 @@
+/**
+ * Reset.
+ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #000;
+  color: #b8b8b8;
+  font-family: 'Roboto';
+  height: 280px;
+  position: relative;
+  text-transform: uppercase;
+  width: 336px;
+}
+
+/**
+ * Canvas.
+ */
+.canvas {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+/**
+ * Logo.
+ */
+.logo {
+  left: 50%;
+  position: absolute;
+  stroke: #ed145b;
+  top: 23px;
+  transform: translateX(-50%);
+  width: 86px;
+  z-index: 4;
+}
+
+/**
+ * Steps.
+ */
+.step-1,
+.step-2 {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/**
+ * Step 1.
+ */
+.step-1 {
+  background: url('images/step-1-background.jpg');
+  z-index: 1;
+}
+
+/**
+ * Step 1: Map.
+ */
+.step-1-map {
+  background: url('images/step-1-map.png') center top no-repeat;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.step-1-map-mark {
+  opacity: 0.5;
+  position: absolute;
+}
+
+.step-1-map-mark-1 {
+  background: url('images/step-1-map-base-1.png') no-repeat;
+  height: 17px;
+  width: 7px;
+}
+
+.step-1-map-mark-1:nth-child(1) {
+  left: 56px;
+  top: 66px;
+}
+
+.step-1-map-mark-1:nth-child(2) {
+  left: 164px;
+  top: 74px;
+}
+
+.step-1-map-mark-1:nth-child(3) {
+  left: 250px;
+  top: 62px;
+}
+
+.step-1-map-mark-1:nth-child(4) {
+  left: 300px;
+  top: 112px;
+}
+
+.step-1-map-mark-2 {
+  background: url('images/step-1-map-base-2.png') no-repeat;
+  height: 26px;
+  width: 9px;
+}
+
+.step-1-map-mark-2:nth-child(1) {
+  left: 28px;
+  top: 172px;
+}
+
+.step-1-map-mark-2:nth-child(2) {
+  left: 230px;
+  top: 234px;
+}
+
+.step-1-map-mark-2:nth-child(3) {
+  left: 298px;
+  top: 181px;
+}
+
+.step-1-map-mark-2:nth-child(4) {
+  left: 108px;
+  top: 242px;
+}
+
+/**
+ * Step 1: Text.
+ */
+.step-1-text {
+  text-align: center;
+}
+
+.step-1-text-internet {
+  font-size: 20px;
+  line-height: 25px;
+  left: 0;
+  letter-spacing: 1.25px;
+  position: absolute;
+  top: 100px;
+  width: 100%;
+}
+
+.step-1-text-hackeado {
+  font-size: 20px;
+  line-height: 29px;
+  left: 0;
+  letter-spacing: 2px;
+  position: absolute;
+  top: 160px;
+  width: 100%;
+}
+
+.step-1-text-hackeado-highlight {
+  font-size: 34px;
+}
+
+/**
+ * Step 1: Local.
+ */
+.step-1-local {
+  bottom: 0;
+  left: 0;
+  letter-spacing: 2px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.step-1-local-item {
+  position: absolute;
+}
+
+.step-1-local-item-mark {
+  background: url('images/step-1-map-base-1.png');
+  content: '';
+  height: 17px;
+  left: -13px;
+  opacity: 0.5;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 7px;
+}
+
+.step-1-local-item:nth-child(1) {
+  font-size: 19px;
+  left: 90px;
+  top: 100px;
+}
+
+.step-1-local-item:nth-child(2) {
+  font-size: 23px;
+  left: 189px;
+  top: 127px;
+}
+
+.step-1-local-item:nth-child(3) {
+  font-size: 19px;
+  left: 69px;
+  top: 154px;
+}
+
+.step-1-local-item:nth-child(4) {
+  font-size: 33px;
+  left: 126px;
+  letter-spacing: 3px;
+  top: 188px;
+}
+
+
+/**
+ * Step 2.
+ */
+.step-2 {
+  background: url('images/step-2-background.jpg');
+  z-index: 3;
+}
+
+.step-2-title {
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  opacity: 0.8;
+}
+
+.step-2-title-future {
+  color: #ed145b;
+  font-size: 28px;
+  left: 92px;
+  letter-spacing: 1px;
+  position: absolute;
+  top: 182px;
+}
+
+.step-2-title-tecnologia {
+  left: 78px;
+  position: absolute;
+  top: 221px;
+}
+
+.step-2-title-inovacao {
+  left: 184px;
+  position: absolute;
+  top: 221px;
+}
+
+.step-2-title-negocios {
+  left: 127px;
+  position: absolute;
+  top: 244px;
+}
+
+.step-2-button {
+  background: rgba(237, 20, 91, 0.2);
+  color: #ed145b;
+  position: absolute;
+  font-size: 15px;
+  top: 181px;
+  height: 55px;
+  left: 50%;
+  letter-spacing: 2px;
+  line-height: 55px;
+  text-align: center;
+  transform: translateX(-50%);
+  transform-origin: center;
+  white-space: nowrap;
+  width: 174px;
+}
+
+.step-2-button-box {
+  border-color: #fff;
+  border-style: solid;
+  height: 5px;
+  position: absolute;
+  width: 5px;
+}
+
+.step-2-button-box:nth-child(1) {
+  border-width: 1px 0 0 1px;
+  left: -1px;
+  top: -1px;
+}
+
+.step-2-button-box:nth-child(2) {
+  border-width: 1px 1px 0 0;
+  right: -1px;
+  top: -1px;
+}
+
+.step-2-button-box:nth-child(3) {
+  border-width: 0 0 1px 1px;
+  bottom: -1px;
+  left: -1px;
+}
+
+.step-2-button-box:nth-child(4) {
+  border-width: 0 1px 1px 0;
+  bottom: -1px;
+  right: -1px;
+}
+
+.step-2-notes {
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  opacity: 0.55;
+  position: absolute;
+  text-align: center;
+  top: 248px;
+  width: 100%;
+}

@@ -1,0 +1,155 @@
+/* globals TimelineMax, TweenMax, Power0 */
+
+/**
+ * Utils.
+ */
+function getRandomInt (min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+/**
+ * Logo.
+ */
+function setLogoStrokeDashoffset () {
+  var strokes = document.querySelectorAll('.logo-icon-stroke')
+
+  for (var i = strokes.length - 1; i >= 0; i--) {
+    var stroke = strokes[i]
+    var strokeLength = stroke.getTotalLength()
+
+    stroke.style.strokeDasharray = strokeLength + ' ' + strokeLength
+    stroke.style.strokeDashoffset = strokeLength
+  }
+}
+
+/**
+ * Spans.
+ */
+function setElementSpans (selector) {
+  var element = document.querySelector(selector)
+
+  element.innerHTML = element.innerHTML.trim().replace(/./g, '<span>$&</span>')
+}
+
+setElementSpans('.step-2-button-text')
+setElementSpans('.step-2-notes')
+
+/**
+ * Canvas.
+ */
+var HEIGHT = document.body.clientHeight / 2
+var WIDTH = document.body.clientWidth / 2
+
+var canvas = document.querySelector('.canvas')
+var context = canvas.getContext('2d')
+
+var simplexNoise = new SimplexNoise()
+var simplexNoiseAccumulator = 0
+
+TweenMax.set(canvas, {
+  height: document.body.clientHeight,
+  width: document.body.clientWidth
+})
+
+var glitchRequest
+
+function createGlitchImage () {
+  domtoimage.toBlob(document.body).then(function (blob) {
+    var image = new Image()
+
+    image.src = URL.createObjectURL(blob)
+    image.onload = function () {
+      context.drawImage(image,
+        0, 0, document.body.clientWidth, document.body.clientHeight,
+        0, 0, document.body.clientWidth / 2, document.body.clientHeight / 2
+      )
+
+      generateGlitch(image)
+    }
+  })
+}
+
+function generateGlitch (image) {
+  for (var i = 0; i < 12; i++) {
+    var value = simplexNoise.noise2D(0, simplexNoiseAccumulator)
+    var y = getRandomInt(0, HEIGHT)
+    var height = getRandomInt(HEIGHT * 0.03, HEIGHT * 0.15)
+
+  	context.drawImage(
+      canvas,
+      0, y, WIDTH, height,
+      (WIDTH * 0.02) *  value * 2, y, WIDTH, height
+    )
+
+    simplexNoiseAccumulator += 0.01
+
+    if (simplexNoiseAccumulator > 5) simplexNoiseAccumulator *= -1
+  }
+
+  glitchRequest = requestAnimationFrame(generateGlitch)
+}
+
+function resetGlitch () {
+  cancelAnimationFrame(glitchRequest)
+
+  context.clearRect(0, 0, WIDTH, HEIGHT)
+}
+
+/**
+ * Animação.
+ */
+var steps = new TimelineMax()
+var stepsRepeat = 0
+var stepsEnd = function () {
+  if (stepsRepeat === 0) {
+    stepsRepeat++
+      context.clearRect(0, 0, WIDTH, HEIGHT)
+    TweenMax.to('body', 0.5, { autoAlpha: 0, onComplete: function () {
+      steps.restart()
+    }})
+  }
+}
+
+steps
+  .call(setLogoStrokeDashoffset)
+  .to('body', 0.5, { autoAlpha: 1 })
+  .from('.step-1 ', 0.5, { autoAlpha: 0 }, 'start')
+  .staggerTo('.logo-icon-stroke', 0.3, { strokeDashoffset: 0 }, 0.15, 'start')
+  .staggerFrom('.step-1-map-mark', 0.2, { autoAlpha: 0 }, 0.1, 'internet')
+  .from('.step-1-text', 0.3, { autoAlpha: 0, y: 20 }, 'internet')
+  .staggerTo('.step-1-map-mark', 0.1, {
+    autoAlpha: 0,
+    repeat: 2,
+    onComplete: function () {
+      TweenMax.to(this.target, 0.2, {
+        autoAlpha: 0.5
+      })
+    }
+  }, 0.2)
+  .to({}, 1, {})
+  .to('.step-1-text', 0.3, { autoAlpha: 0 })
+  .staggerFrom('.step-1-local-item', 0.3, { autoAlpha: 0 }, 0.15)
+  .staggerTo('.step-1-local-item-mark', 0.1, {
+    autoAlpha: 0,
+    repeat: 2,
+    onComplete: function () {
+      TweenMax.to(this.target, 0.2, {
+        autoAlpha: 0.5
+      })
+    }
+  }, 0.3)
+  .to({}, 2, {})
+  .call(createGlitchImage)
+  .from('.step-2', 0.01, { autoAlpha: 0, repeat: 3, yoyo: true }, '+= 0.5')
+  .to('.step-2', 0.05, { autoAlpha: 1 })
+  .call(resetGlitch)
+  .staggerFrom('.step-2-title-text', 0.3, { autoAlpha: 0, y: 30 }, 0.15)
+  .to({}, 1, {})
+  .staggerTo('.step-2-title-text', 0.3, { autoAlpha: 0, y: -30 }, 0.15)
+  .from('.step-2-button', 0.25, { autoAlpha: 0, scale: 0.5 })
+  .staggerFrom('.step-2-button-text span', 0.1, { autoAlpha: 0 }, 0.01)
+  .staggerFrom('.step-2-notes span', 0.1, { autoAlpha: 0 }, 0.01)
+  .to('.step-2-button', 0.2, { backgroundColor: 'rgba(237, 20, 91, 0.3)', ease: Power4.easeIn, scale: 0.9, repeat: 2, yoyo: true })
+  .to('.step-2-button', 0.3, { backgroundColor: 'rgba(237, 20, 91, 0.2)', scale: 1 })
+  .to({}, 2, {})
+  .call(stepsEnd)

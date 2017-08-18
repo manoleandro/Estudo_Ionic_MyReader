@@ -1,0 +1,5 @@
+var DISQUSWIDGETS;
+
+if (typeof DISQUSWIDGETS != 'undefined') {
+    DISQUSWIDGETS.displayCount({"text":{"and":"e","comments":{"zero":"Seja o primeiro a comentar!","multiple":"{num} coment\u00e1rios","one":"1 coment\u00e1rio"}},"counts":[{"id":"https:\/\/tableless.com.br\/criando-uma-aplicacao-movel-com-ionic-2-e-angular-2-em-dez-passos\/","comments":29}]});
+}
